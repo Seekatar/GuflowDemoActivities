@@ -1,5 +1,5 @@
 ﻿using CCC.CAS.Workflow3Messages.Messages;
-using CCC.CAS.Workflow3Service.Services;
+using CCC.CAS.AwsWorkflow;
 using Guflow;
 using Guflow.Decider;
 using Guflow.Worker;
@@ -16,9 +16,9 @@ namespace CCC.CAS.Workflow3Service.Activities
         public bool Processed { get; set; }
     }
 
-    public class PpoProcessor<T> : CasActvity<T> where T : class
+    public class PpoProcessor : AwsActivity
     {
-        public PpoProcessor(IOptions<AwsWorkflowOptions> config, ILogger<T> logger, Domain domain) : base(config, logger, domain)
+        public PpoProcessor(IOptions<AwsWorkflowOptions> config, ILogger logger, Domain domain) : base(config, logger, domain)
         {
         }
 

@@ -1,4 +1,4 @@
-﻿using CCC.CAS.Workflow3Service.Services;
+﻿using CCC.CAS.AwsWorkflow;
 using Guflow;
 using Guflow.Decider;
 using Guflow.Worker;
@@ -14,11 +14,10 @@ namespace CCC.CAS.Workflow3Service.Activities
         DefaultScheduleToStartTimeoutInSeconds = 1000,
         DefaultStartToCloseTimeoutInSeconds = 1000
         )]
-    public class PpoProcessorC : PpoProcessor<PpoProcessorC>
+    public class PpoProcessorC : PpoProcessor
     {
         public PpoProcessorC(IOptions<AwsWorkflowOptions> config, ILogger<PpoProcessorC> logger, Domain domain) : base(config, logger, domain)
         {
         }
-        public static Identity Identity => Identity.New(nameof(PpoProcessorC), "1.3");
     }
 }

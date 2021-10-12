@@ -1,4 +1,4 @@
-﻿using CCC.CAS.Workflow3Service.Services;
+﻿using CCC.CAS.AwsWorkflow;
 using Guflow;
 using Guflow.Worker;
 using Microsoft.Extensions.Logging;
@@ -15,7 +15,7 @@ namespace CCC.CAS.Workflow3Service.Activities
         DefaultScheduleToStartTimeoutInSeconds = 1000,
         DefaultStartToCloseTimeoutInSeconds = 1000
         )]
-    public class PpoEnd : CasActvity<PpoEnd>
+    public class PpoEnd : AwsActivity
     {
         public PpoEnd(IOptions<AwsWorkflowOptions> config, ILogger<PpoEnd> logger, Domain domain) : base(config, logger, domain)
         {
